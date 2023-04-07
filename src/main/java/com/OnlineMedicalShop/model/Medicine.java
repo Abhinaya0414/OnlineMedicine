@@ -1,0 +1,67 @@
+package com.OnlineMedicalShop.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="medicine")
+public class Medicine {
+    @Id
+    @NotNull(message = "medicine_id can not be empty")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   	public int medicineId;
+   	public String medicineName;
+  
+   	public float medicinePrice;
+   	public String medicineDescription;
+   	public String instock; //Instock
+   	@ManyToOne
+    private Cart cart;
+	public Medicine(int medicineId, String medicineName, float medicinePrice, String medicineDescription, String instock) {
+		// TODO Auto-generated constructor stub
+		
+	}
+	public int getMedicineId() {
+		return medicineId;
+	}
+	public void setMedicineId(int medicineId) {
+		this.medicineId = medicineId;
+	}
+	public String getMedicineName() {
+		return medicineName;
+	}
+	public void setMedicineName(String medicineName) {
+		this.medicineName = medicineName;
+	}
+	public float getMedicinePrice() {
+		return medicinePrice;
+	}
+	public void setMedicinePrice(float medicinePrice) {
+		this.medicinePrice = medicinePrice;
+	}
+	public String getMedicineDescription() {
+		return medicineDescription;
+	}
+	public void setMedicineDescription(String medicineDescription) {
+		this.medicineDescription = medicineDescription;
+	}
+	public String getInstock() {
+		return instock;
+	}
+	public void setInstock(String medicineAvailability) {
+		this.instock = medicineAvailability;
+	}
+   	Medicine()
+   	{
+   		
+   	}
+
+
+    
+}
